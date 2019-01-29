@@ -54,7 +54,7 @@ typings/
 # Optional REPL history
 .node_repl_history
 
-.idea
+.idea/*
 
 # Output of 'npm pack'
 *.tgz
