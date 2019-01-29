@@ -2,7 +2,7 @@
   "name": "url-metadata-parser",
   "version": "1.0.1",
   "description": "Request an http(s) url and scrape its metadata",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
