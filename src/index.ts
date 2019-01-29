@@ -1,8 +1,8 @@
-import {MetadataParser} from './metadata-parser';
+import {UrlMetadataParser} from './url-metadata-parser';
 import {Metatag} from './metatag';
 
 export {
-  MetadataParser,
+  UrlMetadataParser,
   Metatag
 }
 

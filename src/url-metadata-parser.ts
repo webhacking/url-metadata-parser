@@ -9,7 +9,7 @@ import {Metatag} from './metatag';
 export type Charset = string;
 export type IntermediateResult = Charset | null;
 
-export class MetadataParser {
+export class UrlMetadataParser {
   public static getCharsetByBom(buf: Buffer): Observable<IntermediateResult> {
     const boms: ReadonlyMap<Charset, Buffer> = new Map([
       // ['utf-8', [0xEF, 0xBB, 0xBF]],

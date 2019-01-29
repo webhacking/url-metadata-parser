@@ -11,6 +11,22 @@ npm install metadata-parser
 ## Usage
 
 Promise-based:
+```typescript
+import {UrlMetadataParser} from 'url-metadata-parser';
+UrlMetadataParser.parse('https://www.google.com').toPromise().then(tags => console.log('tags', tags));
+```
+
+Observable-based:
+```typescript
+import {UrlMetadataParser} from 'url-metadata-parser';
+UrlMetadataParser.parse('https://www.google.com').subscribe(tags => console.log('tags', tags));
+```
+
+## API
+
+- get(select: string)
+  - Will be returned attribute value 
+
 
 
 
