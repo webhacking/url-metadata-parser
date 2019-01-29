@@ -1,10 +1,12 @@
-import axios from 'axios';
-import { from } from 'rxjs/internal/observable/from';
-import { concatMap, map } from 'rxjs/operators';
-import * as iconvLte from 'iconv-lite';
-import { of } from 'rxjs/internal/observable/of';
-import { Metatag } from './metatag';
-export class MetadataParser {
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const axios_1 = require("axios");
+const from_1 = require("rxjs/internal/observable/from");
+const operators_1 = require("rxjs/operators");
+const iconvLte = require("iconv-lite");
+const of_1 = require("rxjs/internal/observable/of");
+const metatag_1 = require("./metatag");
+class MetadataParser {
     static getCharsetByBom(buf) {
         const boms = new Map([
             // ['utf-8', [0xEF, 0xBB, 0xBF]],
@@ -29,22 +31,23 @@ export class MetadataParser {
         };
         for (let [charset, bom] of boms) {
             if (startsWith(bom)) {
-                return of(charset.toUpperCase());
+                return of_1.of(charset.toUpperCase());
             }
         }
-        return of(null);
+        return of_1.of(null);
     }
     static parse(url) {
-        return from(axios.get(url, {
+        return from_1.from(axios_1.default.get(url, {
             responseType: 'arraybuffer',
-        })).pipe(concatMap((res) => {
-            return this.getCharsetByBom(res.data).pipe(map((charset) => {
+        })).pipe(operators_1.concatMap((res) => {
+            return this.getCharsetByBom(res.data).pipe(operators_1.map((charset) => {
                 const body = iconvLte.decode(res.data, charset || 'UTF-8');
                 return body.match(/<meta[^>]+>/g).map(function (val) {
-                    return new Metatag(val);
+                    return new metatag_1.Metatag(val);
                 });
             }));
         }));
     }
 }
+exports.MetadataParser = MetadataParser;
 //# sourceMappingURL=metadata-parser.js.map
