@@ -1,5 +1,5 @@
 {
-  "name": "metadata-parser",
+  "name": "url-metadata-parser",
   "version": "1.0.0",
   "description": "Request an http(s) url and scrape its metadata",
   "main": "index.js",
