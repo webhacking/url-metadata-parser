@@ -1,13 +1,20 @@
 {
   "name": "metadata-parser",
   "version": "1.0.0",
-  "description": "",
+  "description": "Request an http(s) url and scrape its metadata",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "metadata",
+    "metatag",
+    "html",
+    "tag",
+    "tags",
+    "meta"
+  ],
+  "author": "a@hax0r.info",
   "license": "ISC",
   "dependencies": {
     "@types/axios": "^0.14.0",
