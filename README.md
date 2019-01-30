@@ -5,7 +5,7 @@ Request an http(s) url and scrape its metadata.
 ## Install
 
 ```
-npm install metadata-parser
+npm install url-metadata-parser
 ```
 
 ## Usage
