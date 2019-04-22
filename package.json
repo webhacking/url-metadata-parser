@@ -4,7 +4,10 @@
   "description": "Request an http(s) url and scrape its metadata",
   "main": "dist/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "format": "./node_modules/.bin/prettier --write \"**/*.ts\"",
+    "test": "./node_modules/.bin/jest --testPathIgnorePatterns dist",
+    "coverage": "./node_modules/.bin/jest --coverage --testPathIgnorePatterns dist",
+    "post-coverage": "./node_modules/.bin/nyc report --reporter=json > coverage/coverage.json"
   },
   "keywords": [
     "metadata",
@@ -22,7 +25,6 @@
     "iconv": "^2.3.2",
     "iconv-lite": "^0.4.24",
     "node-html-parser": "^1.1.12",
-    "prettier": "^1.16.1",
     "rxjs": "^6.3.3",
     "ts-node": "^8.0.2",
     "typescript": "^3.2.4"
@@ -30,6 +32,7 @@
   "devDependencies": {
     "@types/axios": "^0.14.0",
     "@types/iconv": "^2.1.16",
-    "@types/iconv-lite": "0.0.1"
+    "@types/iconv-lite": "0.0.1",
+    "prettier": "^1.17.0"
   }
 }
