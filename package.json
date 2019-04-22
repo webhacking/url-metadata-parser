@@ -29,6 +29,7 @@
   },
   "devDependencies": {
     "@types/axios": "^0.14.0",
-    "@types/iconv": "^2.1.16"
+    "@types/iconv": "^2.1.16",
+    "@types/iconv-lite": "0.0.1"
   }
 }
