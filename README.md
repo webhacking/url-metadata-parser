@@ -4,7 +4,7 @@
 
 <p align="left">
 <a href="https://travis-ci.org/webhacking/url-metadata-parser"><img src="https://travis-ci.org/webhacking/url-metadata-parser.svg?branch=master" alt="Build Status"></a>
-<a href="https://codecov.io/gh/webhacking/sequence-shorten"><img src="https://codecov.io/gh/webhacking/sequence-shorten/branch/master/graph/badge.svg" /></a>
+<a href="https://codecov.io/gh/webhacking/url-metadata-parser"><img src="https://codecov.io/gh/webhacking/url-metadata-parser/branch/master/graph/badge.svg" /></a>
 </p>
 
 
