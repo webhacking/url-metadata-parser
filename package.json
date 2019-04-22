@@ -5,7 +5,7 @@
   "main": "dist/index.js",
   "scripts": {
     "format": "./node_modules/.bin/prettier --write \"**/*.ts\"",
-    "test": "./node_modules/.bin/jest --testPathIgnorePatterns dist",
+    "test": "./node_modules/.bin/jest",
     "coverage": "./node_modules/.bin/jest --coverage --testPathIgnorePatterns dist",
     "post-coverage": "./node_modules/.bin/nyc report --reporter=json > coverage/coverage.json"
   },
@@ -26,13 +26,36 @@
     "iconv-lite": "^0.4.24",
     "node-html-parser": "^1.1.12",
     "rxjs": "^6.3.3",
-    "ts-node": "^8.0.2",
-    "typescript": "^3.2.4"
+    "ts-node": "^8.0.2"
   },
   "devDependencies": {
     "@types/axios": "^0.14.0",
     "@types/iconv": "^2.1.16",
     "@types/iconv-lite": "0.0.1",
-    "prettier": "^1.17.0"
+    "@types/jest": "^24.0.11",
+    "jest": "^24.7.1",
+    "prettier": "^1.17.0",
+    "ts-jest": "^24.0.2",
+    "typescript": "^3.4.4"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.ts$": "ts-jest"
+    },
+    "testRegex": "\\.spec\\.ts$",
+    "collectCoverage": true,
+    "moduleFileExtensions": [
+      "ts",
+      "js"
+    ],
+    "globals": {
+      "ts-jest": {
+        "enableTsDiagnostics": true
+      }
+    },
+    "testPathIgnorePatterns": [
+      "./dist",
+      "./node_modules"
+    ]
   }
 }

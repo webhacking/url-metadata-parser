@@ -5,8 +5,8 @@ import {concatMap, map} from 'rxjs/operators';
 import {of} from 'rxjs/internal/observable/of';
 import {Metatag} from './metatag';
 import {MetaEntity} from './meta.entity';
+import * as iconvLte from 'iconv-lite';
 
-const iconvLte = require("iconv-lite");
 export type Charset = string;
 export type IntermediateResult = Charset | null;
 export enum Errors {
@@ -30,14 +30,14 @@ export class UrlMetadataParser {
       ['bocu-1', [0xFB, 0xEE, 0x28]],
       ['gb-18030', [0x84, 0x31, 0x95, 0x33]],
     ].map(([c, bytes]: [string, number[]]) => {
-      return ([c, Buffer.from(bytes)] as [Charset, Buffer])
+      return ([c, Buffer.from(bytes)] as [Charset, Buffer]);
     }));
 
     const startsWith = (bom) => {
-      return buf.slice(0, bom.length).equals(bom)
+      return buf.slice(0, bom.length).equals(bom);
     };
 
-    for ( let [charset, bom] of boms ) {
+    for ( const [charset, bom] of boms ) {
       if ( startsWith(bom) ) {
         return of(charset.toUpperCase());
       }
@@ -59,9 +59,9 @@ export class UrlMetadataParser {
             }
             return body.match(/<meta[^>]+>/g).map(val => new Metatag(val));
           })
-        )
+        );
       }),
       map((tags: Metatag[]) => new MetaEntity(tags))
-    )
+    );
   }
 }
