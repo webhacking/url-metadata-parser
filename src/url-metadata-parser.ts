@@ -5,14 +5,17 @@ import {concatMap, map} from 'rxjs/operators';
 import * as iconvLte from 'iconv-lite';
 import {of} from 'rxjs/internal/observable/of';
 import {Metatag} from './metatag';
+import {MetaEntity} from './meta.entity';
 
 export type Charset = string;
 export type IntermediateResult = Charset | null;
+export enum Errors {
+  ContentsDoesNotExists = 'Contents Does not exists.'
+}
 
 export class UrlMetadataParser {
   public static getCharsetByBom(buf: Buffer): Observable<IntermediateResult> {
     const boms: ReadonlyMap<Charset, Buffer> = new Map([
-      // ['utf-8', [0xEF, 0xBB, 0xBF]],
       ['utf-1', [0xF7, 0x64, 0x4C]],
       ['utf-7', [0x2B, 0x2F, 0x76, 0x38]],
       ['utf-7', [0x2B, 0x2F, 0x76, 0x39]],
@@ -43,20 +46,24 @@ export class UrlMetadataParser {
     return of(null);
   }
 
-  public static parse(url: string): Observable<Metatag[]> {
+  public static parse(url: string): Observable<MetaEntity> {
     return from(axios.get(url, {
       responseType: 'arraybuffer',
     })).pipe(
-      concatMap((res: any) => {
+      concatMap((res: AxiosResponse) => {
         return this.getCharsetByBom(res.data).pipe(
           map((charset: IntermediateResult) => {
             const body = iconvLte.decode(res.data, charset || 'UTF-8');
+            if (body.length <= 0) {
+              throw new Error(Errors.ContentsDoesNotExists);
+            }
             return body.match(/<meta[^>]+>/g).map(function(val) {
               return new Metatag(val);
             });
           })
         )
-      })
+      }),
+      map((tags: Metatag[]) => new MetaEntity(tags))
     )
   }
 }

@@ -14,24 +14,4 @@ export class Metatag {
       lowerCaseTagName: true
     });
   }
-
-  // Todo Will be Replacement anti codes
-  public get(select: string): any {
-    return Object.keys(this.attributes()).filter((attribute, key) => {
-      if ( attribute === 'property' ) {
-        return this.attributes()[attribute] === select;
-      } else {
-        return attribute === select;
-      }
-    }).map( (key: string)=> {
-      if ( key === 'property' ) {
-        return this.attributes()['content'];
-      }
-      return this.attributes()[key];
-    })
-  }
-
-  public attributes(): any {
-    return (this.node.childNodes[0] as HTMLElement).attributes;
-  }
 }

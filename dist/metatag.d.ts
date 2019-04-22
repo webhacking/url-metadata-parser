@@ -7,6 +7,4 @@ export declare class Metatag {
         valid: boolean;
     });
     constructor(tag: string);
-    get(select: string): any;
-    attributes(): any;
 }
