@@ -5,10 +5,11 @@
     "outDir": "dist/",
     "sourceMap": true,
     "declaration": true,
-    "moduleResolution": "node",
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
+//    "moduleResolution": "node",
+//    "emitDecoratorMetadata": true,
+//    "experimentalDecorators": true,
     "target": "es6",
+    "removeComments": true,
     "typeRoots": [
       "node_modules/@types"
     ],

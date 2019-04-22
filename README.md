@@ -2,8 +2,6 @@
 
 > Request an http(s) url and *scrape its metadata*. It requires [node-html-parser](https://github.com/taoqf/node-html-parser)
 
-This library is very fast, and powerful.
-
 ## Install
 
 ```
