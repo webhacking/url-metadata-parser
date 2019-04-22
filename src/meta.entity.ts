@@ -12,7 +12,7 @@ export class MetaEntity {
   }
 
   public getContentByName(name: string): string | null {
-    return this.tags.map((tag) => (tag.node.childNodes[0] as HTMLElement).attributes).filter(tag => tag.name && tag.name == name)[0] ? this.tags.map((tag) => (tag.node.childNodes[0] as HTMLElement).attributes).filter(tag => tag.name && tag.property === name)[0].content : null;
+    return this.tags.map((tag) => (tag.node.childNodes[0] as HTMLElement).attributes).filter(tag => tag.name && tag.name == name)[0] ? this.tags.map((tag) => (tag.node.childNodes[0] as HTMLElement).attributes).filter(tag => tag.name && tag.name === name)[0].content : null;
   }
 
   public getNameByContent(content: string) {
