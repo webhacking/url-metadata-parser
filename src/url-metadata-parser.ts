@@ -2,11 +2,11 @@ import axios, {AxiosResponse} from 'axios';
 import {from} from 'rxjs/internal/observable/from';
 import {Observable} from 'rxjs/internal/Observable';
 import {concatMap, map} from 'rxjs/operators';
-import * as iconvLte from 'iconv-lite';
 import {of} from 'rxjs/internal/observable/of';
 import {Metatag} from './metatag';
 import {MetaEntity} from './meta.entity';
 
+const iconvLte = require("iconv-lite");
 export type Charset = string;
 export type IntermediateResult = Charset | null;
 export enum Errors {
@@ -57,9 +57,7 @@ export class UrlMetadataParser {
             if (body.length <= 0) {
               throw new Error(Errors.ContentsDoesNotExists);
             }
-            return body.match(/<meta[^>]+>/g).map(function(val) {
-              return new Metatag(val);
-            });
+            return body.match(/<meta[^>]+>/g).map(val => new Metatag(val));
           })
         )
       }),

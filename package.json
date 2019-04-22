@@ -18,8 +18,6 @@
   "author": "a@hax0r.info",
   "license": "ISC",
   "dependencies": {
-    "@types/axios": "^0.14.0",
-    "@types/iconv": "^2.1.16",
     "axios": "^0.18.0",
     "iconv": "^2.3.2",
     "iconv-lite": "^0.4.24",
@@ -28,5 +26,9 @@
     "rxjs": "^6.3.3",
     "ts-node": "^8.0.2",
     "typescript": "^3.2.4"
+  },
+  "devDependencies": {
+    "@types/axios": "^0.14.0",
+    "@types/iconv": "^2.1.16"
   }
 }
