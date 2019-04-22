@@ -3,10 +3,10 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const axios_1 = require("axios");
 const from_1 = require("rxjs/internal/observable/from");
 const operators_1 = require("rxjs/operators");
-const iconvLte = require("iconv-lite");
 const of_1 = require("rxjs/internal/observable/of");
 const metatag_1 = require("./metatag");
 const meta_entity_1 = require("./meta.entity");
+const iconvLte = require("iconv-lite");
 var Errors;
 (function (Errors) {
     Errors["ContentsDoesNotExists"] = "Contents Does not exists.";
@@ -49,9 +49,7 @@ class UrlMetadataParser {
                 if (body.length <= 0) {
                     throw new Error(Errors.ContentsDoesNotExists);
                 }
-                return body.match(/<meta[^>]+>/g).map(function (val) {
-                    return new metatag_1.Metatag(val);
-                });
+                return body.match(/<meta[^>]+>/g).map(val => new metatag_1.Metatag(val));
             }));
         }), operators_1.map((tags) => new meta_entity_1.MetaEntity(tags)));
     }
