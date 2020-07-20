@@ -32,7 +32,7 @@
     "@types/axios": "0.14.0",
     "@types/iconv": "2.1.16",
     "@types/iconv-lite": "0.0.1",
-    "@types/jest": "25.2.3",
+    "@types/jest": "26.0.5",
     "jest": "24.7.1",
     "prettier": "1.19.1",
     "ts-jest": "24.3.0",
