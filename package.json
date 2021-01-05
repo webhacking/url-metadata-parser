@@ -21,7 +21,7 @@
   "author": "a@hax0r.info",
   "license": "ISC",
   "dependencies": {
-    "axios": "^0.19.0",
+    "axios": "^0.21.0",
     "iconv": "^2.3.2",
     "iconv-lite": "^0.6.0",
     "node-html-parser": "^1.1.12",
