@@ -34,7 +34,7 @@
     "@types/iconv-lite": "0.0.1",
     "@types/jest": "26.0.5",
     "jest": "24.7.1",
-    "prettier": "1.19.1",
+    "prettier": "3.2.5",
     "ts-jest": "24.3.0",
     "typescript": "3.9.2"
   },
