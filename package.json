@@ -29,7 +29,7 @@
     "ts-node": "^8.0.2"
   },
   "devDependencies": {
-    "@types/axios": "0.14.0",
+    "@types/axios": "0.14.4",
     "@types/iconv": "2.1.16",
     "@types/iconv-lite": "0.0.1",
     "@types/jest": "26.0.5",
